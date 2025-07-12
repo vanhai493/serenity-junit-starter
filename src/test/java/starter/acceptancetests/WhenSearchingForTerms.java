@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import starter.actions.navigation.NavigateTo;
-import starter.actions.search.LookForInformation;
+
+import starter.actions.search.WikipediaSearch;
 
 @ExtendWith(SerenityJUnit5Extension.class)
 class WhenSearchingForTerms {
@@ -20,24 +21,13 @@ class WhenSearchingForTerms {
     Actor actor;
 
     @Test
-    @DisplayName("Should be able to search for red things")
-    void searchForRedThings() {
+    @DisplayName("Should be able to search for 'apple' on Wikipedia")
+    void searchForAppleOnWikipedia() {
         actor.attemptsTo(
-                NavigateTo.theSearchHomePage(),
-                LookForInformation.about("red"),
-                WaitUntil.the(ExpectedConditions.titleContains("red")),
-                Ensure.that(TheWebPage.title()).containsIgnoringCase("red")
-        );
-    }
-
-    @Test
-    @DisplayName("Should be able to search for green things")
-    void searchForGreenThings() {
-        actor.attemptsTo(
-                NavigateTo.theSearchHomePage(),
-                LookForInformation.about("green"),
-                WaitUntil.the(ExpectedConditions.titleContains("green")),
-                Ensure.that(TheWebPage.title()).containsIgnoringCase("green")
+                NavigateTo.theWikipediaHomePage(),
+                WaitUntil.the(ExpectedConditions.titleContains("Wikipedia")),
+                WikipediaSearch.forTerm("Apple"),
+                Ensure.that(TheWebPage.title()).containsIgnoringCase("Apple")
         );
     }
 }
