@@ -1,25 +1,42 @@
-# Serenity JUnit Starter project
+# Serenity JUnit 5 Starter Project
 
-Get started quickly with Serenity BDD and JUnit 5 with this simple starter project. 
+This project provides a quick starting point for using Serenity BDD with JUnit 5. It supports both Maven and Gradle, and demonstrates best practices for organizing tests and configuration.
 
-## Get the code
+## Project Structure
 
-Click on the [Use This Template button](https://github.com/serenity-bdd/serenity-junit-starter/generate) to create a new project in your own Github account. 
+**Note:** This project has no application code in `src/main/java/`—it is solely for acceptance/functional test automation with Serenity BDD.
+- `src/test/java/` - Test code (organised by feature and action)
+- `src/test/resources/` - Test resources and configuration, e.g. `serenity.conf`, `junit-platform.properties`
+- `serenity.properties` - Serenity configuration
 
-Or simply [download a zip](https://github.com/serenity-bdd/serenity-junit-starter/archive/master.zip) file.
+## Getting Started
+### 1. Get the Code
+- Click [Use This Template](https://github.com/serenity-bdd/serenity-junit-starter/generate) to copy this project to your own GitHub account, **or**
+- [Download as zip](https://github.com/serenity-bdd/serenity-junit-starter/archive/master.zip)
 
-## Running the tests under Maven
+### 2. Build and Run the Tests
 
-The template project comes with both Maven and Gradle build scripts. To run the tests with Maven, open a command window and run:
-
+**With Maven:**
+```sh
   ./mvnw clean verify
+```
 
-## Use Gradle
-
-For GRADLE, pen a command window and run:
-
+**With Gradle:**
+```sh
   ./gradlew test 
+```
 
-## Viewing the reports
+### 3. View Serenity Reports
 
-Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Go take a look!
+After tests run, open the Serenity report at:
+
+- `target/site/serenity/index.html` (for Maven)
+- `build/reports/serenity/index.html` (for Gradle)
+
+## Customization
+- Update `serenity.properties` and `serenity.conf` for custom configuration
+- Add your own application code under `src/main/java/`
+- Add new acceptance tests under `src/test/java/`
+
+## More Information
+For full Serenity BDD documentation, visit [serenity-bdd.info](https://serenity-bdd.info/).
